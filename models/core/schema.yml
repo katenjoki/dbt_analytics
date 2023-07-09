@@ -1,0 +1,69 @@
+version: 2
+
+models:
+  - name: county_codes
+    description: 
+      Contains Kenya's 47 counties and their respective codes.
+    columns:
+      - name: county_code
+      - name: county
+  - name: complete_production_data
+    description: 
+      Kenyan Crop production data by counties corresponding to the years 2017 and 2018.
+      The data contains a new column, county_code from the county_codes file.
+    columns:
+      - name: id
+        description: Primary key for this table.
+        tests:
+          - unique:
+              severity: warn
+          - not_null:
+              severity: warn
+      - name: year
+        description: The year the crop production data was collected.
+      - name: county
+        description: The County where the specific crop was grown and produced.
+      - name: county_code
+        description: The County code that corresponds to the specific county.
+      - name: crop
+        description: The crop that was grown in the specific county, whose production data was collected.
+      - name: area__ha
+        description: Area that corresponds to the total cultivated area in a particular county where the crop was grown
+          in hectares.
+      - name: production__mt
+        description: Total production of the crop produced in a particular county in metric tonnes.
+      - name: value_farm_gate__ksh
+        description: Total value of the crop produced in a particular county in Kenyan Shilling.
+      - name: yield
+        description: This is the harvested production per hectare(ha) for the area under cultivation in a particular county 
+          for a specific crop.
+      - name: value_category
+        description: This categorises the value_farm_gate__ksh records for a specific crop produced in a particular county
+          as "low value", "average value" or "high value".
+
+  - name: complete_production_data_annual_results
+    description: 
+      Kenyan Crop aggregated production data by counties corresponding to the years 2017 and 2018, grouped by 
+      year and county.
+    columns:
+      - name: year
+        description: The year the crop production data was collected.
+      - name: county
+        description: The County where the specific crop was grown and produced.
+      - name: crop
+        description: The crop that was grown in the specific county, whose production data was collected.
+      - name: total_area__ha
+        description: Total area that corresponds to the total cultivated area in a particular county where the crop was grown
+          in hectares for a specific year.
+      - name: total_production__mt
+        description: Total production of all the crops produced in a particular county in for a specific year in
+          metric tonnes for a specific year.
+      - name: total_value_farm_gate__ksh
+        description: Total value of all the crops produced in a particular county in Kenyan Shilling for a specific year.
+      - name: total_yield
+        description: This is the total yield(harvested production per hectare(ha) for the area under cultivation) for all the crops
+          in a particular county for a specific year.
+      - name: total_unique_crops
+        description: Total unique crops grown in a particular county for a specific year.
+
+      
