@@ -4,7 +4,7 @@ select
     -- identifiers
     cast(_id as integer) as id,
     -- timestamps
-    cast(year as timestamp) as year,
+    cast(year as string) as year,
     -- production info
     cast(county as string) as county,
     cast(crop as string) as crop,
@@ -16,9 +16,3 @@ select
 
 from {{ source("staging", "production_table_2017") }}
 
--- dbt build --m <model.sql> --var 'is_test_run: false'
-{% if var('is_test_run', default=true) %}
-
-    limit 100
-
-{% endif%}
