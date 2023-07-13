@@ -4,7 +4,7 @@ select
     -- identifiers
     cast(_id as integer) as id,
     -- timestamps
-    cast(year as timestamp) as year,
+    cast(year as string) as year,
     -- production info
     cast(county as string) as county,
     cast(crop as string) as crop,
