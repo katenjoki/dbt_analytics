@@ -1,3 +1,3 @@
 {{ config(materialized="table") }}
 
-select county_code,county,latitude,longitude from {{ ref('county_code_lookup')}}
+select county_code,county,coordinates from {{ ref('county_code_lookup')}}
