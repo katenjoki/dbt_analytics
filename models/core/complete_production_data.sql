@@ -24,6 +24,8 @@ select
     data_unioned.year, 
     data_unioned.county, 
     county_codes.county_code,
+    county_codes.latitude,
+    county_codes.longitude,
     data_unioned.crop,
     data_unioned.area__ha,
     data_unioned.production__mt,
